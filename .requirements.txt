@@ -1,0 +1,4 @@
+langsmith
+OpenAI
+python-dotenv
+requests

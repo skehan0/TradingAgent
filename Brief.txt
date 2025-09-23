@@ -1,0 +1,4 @@
+Fetch relevant AI news from the previous day
+Analyze each article for potential market impact
+Generate specific trading recommendations with ticker symbols
+Email me the analysis before market open
