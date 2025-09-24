@@ -111,8 +111,14 @@ src/
 Set up automated daily reports using cron:
 
 ```bash
+crontab -e
+
 # Run daily at 7 AM
 0 7 * * * cd /path/to/TradingAgent && .venv/bin/python src/main.py --email --quiet
+
+press esc
+
+Type: :wq and press enter
 ```
 
 ## 📊 Monitoring
