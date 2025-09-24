@@ -9,9 +9,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Simple configuration
-API_KEY = os.getenv("API_KEY") or os.getenv("MAILGUN_API_KEY")
-DOMAIN = "sandbox4fa90c10c8394286bfd3f180ec5ce54f.mailgun.org"
+# Configuration from environment variables
+API_KEY = os.getenv("MAILGUN_API_KEY")
+DOMAIN = os.getenv("MAILGUN_DOMAIN")
+RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL")
 
 def send_analysis_report(analysis: str, articles_count: int = 0):
     """Send analysis report via email"""
@@ -40,7 +41,7 @@ This is AI-generated analysis. Not financial advice.
             auth=("api", API_KEY),
             data={
                 "from": f"AI Trading Agent <postmaster@{DOMAIN}>",
-                "to": "skehan.gavin2@gmail.com",
+                "to": RECIPIENT_EMAIL,
                 "subject": f"Trading Analysis - {datetime.now().strftime('%B %d')}",
                 "text": content
             }
@@ -70,7 +71,7 @@ def test_email_service():
             auth=("api", API_KEY),
             data={
                 "from": f"AI Trading Agent <postmaster@{DOMAIN}>",
-                "to": "skehan.gavin2@gmail.com",
+                "to": RECIPIENT_EMAIL,
                 "subject": "Test Email - Trading Agent",
                 "text": "Test email from your AI Trading Agent. Everything is working!"
             }
