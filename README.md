@@ -24,10 +24,9 @@ pip install -r .requirements.txt
 
 ### 2. Configure Environment
 
-Copy `.env.example` to `.env` and fill in your API keys:
+Create `.env` and fill in your API keys:
 
 ```bash
-cp .env.example .env
 # Edit .env with your actual API keys
 ```
 
@@ -66,16 +65,6 @@ python src/main.py --test-email
 
 # Quiet mode (minimal output)
 python src/main.py --quiet
-```
-
-### Programmatic Usage
-
-```python
-from src.main import run_analysis
-
-# Run analysis
-result = run_analysis(send_email=True)
-print(f"Status: {result['status']}")
 ```
 
 ## 🏗️ Architecture
