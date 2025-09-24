@@ -23,7 +23,7 @@ def send_analysis_report(analysis: str, articles_count: int = 0):
     
     # Create email content
     content = f"""
-AI Trading Analysis Report
+Tradeskee AI Agent Analysis Report
 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 Articles Analyzed: {articles_count}
@@ -40,7 +40,7 @@ This is AI-generated analysis. Not financial advice.
             f"https://api.mailgun.net/v3/{DOMAIN}/messages",
             auth=("api", API_KEY),
             data={
-                "from": f"AI Trading Agent <postmaster@{DOMAIN}>",
+                "from": f"Tradeskee AI Trading Agent <postmaster@{DOMAIN}>",
                 "to": RECIPIENT_EMAIL,
                 "subject": f"Trading Analysis - {datetime.now().strftime('%B %d')}",
                 "text": content
