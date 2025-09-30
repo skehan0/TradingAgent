@@ -42,6 +42,7 @@ Required API keys:
 
 ```bash
 # Basic analysis (console output)
+cd src
 python src/main.py
 ```
 
