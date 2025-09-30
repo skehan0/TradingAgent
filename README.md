@@ -49,7 +49,7 @@ python src/main.py
 python src/main.py --email
 ```
 
-## 📋 Usage
+## Usage
 
 ### Command Line Options
 
@@ -110,15 +110,15 @@ press esc
 Type: :wq and press enter
 ```
 
-## 📊 Monitoring
+## Monitoring
 
 View detailed execution traces and performance metrics in your [LangSmith dashboard](https://smith.langchain.com/).
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This tool provides AI-generated market analysis for informational purposes only. It is not financial advice. Always conduct your own research and consult with financial professionals before making investment decisions.
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
