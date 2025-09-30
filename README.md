@@ -36,19 +36,6 @@ Required API keys:
 - **LangSmith API**: For tracing and monitoring
 - **Mailgun API**: For email delivery (optional)
 
-### 3. Test Setup
-
-```bash
-# Test email service
-python src/main.py --test-email
-
-# Run analysis (console output)
-python src/main.py
-
-# Run analysis and send email
-python src/main.py --email
-```
-
 ## Usage
 
 ### Command Line Options
@@ -56,15 +43,6 @@ python src/main.py --email
 ```bash
 # Basic analysis (console output)
 python src/main.py
-
-# Send analysis via email
-python src/main.py --email
-
-# Test email configuration
-python src/main.py --test-email
-
-# Quiet mode (minimal output)
-python src/main.py --quiet
 ```
 
 ## 🏗️ Architecture
