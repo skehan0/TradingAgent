@@ -14,8 +14,6 @@ perplexity_client = wrap_openai(OpenAI(
 
 @traceable
 def create_llm_response(messages: list, model: str = "sonar", use_perplexity: bool = True) -> str:
-    """Create LLM response using either Perplexity or OpenAI"""
-    
     client = perplexity_client
     model_name = model
     
