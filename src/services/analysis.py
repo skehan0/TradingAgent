@@ -25,7 +25,7 @@ def llm_analysis(state: Dict[str, Any]) -> Dict[str, Any]:
     - Technology breakthroughs
     
     Return your analysis in a clear, actionable format suitable for trading decisions.
-    Prioritize the top 10 most market-relevant articles."""
+    Prioritise the top 10 most market-relevant articles."""
     
     try:
         # Get news articles
