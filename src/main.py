@@ -1,5 +1,5 @@
-from services.analysis import llm_node
-from services.mailgun import send_analysis_report, test_email_service
+from services.analysis import llm_analysis
+from services.mailgun import send_analysis_report
 from dotenv import load_dotenv
 
 def main():
@@ -9,22 +9,19 @@ def main():
     print("AI Trading Agent")
     
     # Run analysis
-    result = llm_node({})
+    analysis = llm_analysis({})
     
-    if result.get('status') == 'complete':
-        analysis = result.get('analysis', '')
-        articles_count = result.get('articles_analyzed', 0)
-        
-        print(f"Analysis complete! ({articles_count} articles)")
+    if analysis and not analysis.startswith("Error") and not analysis.startswith("No AI"):
+        print("Analysis complete!")
         print("\n" + "="*50)
         print(analysis)
         print("="*50)
         
-        email_result = send_analysis_report(analysis, articles_count)
+        email_result = send_analysis_report(analysis, 0)
         print(f"Email sent: {email_result.get('success', False)}")
         
     else:
-        print(f"Analysis failed: {result.get('analysis', 'Unknown error')}")
+        print(f"Analysis failed: {analysis}")
 
 if __name__ == "__main__":
     main()

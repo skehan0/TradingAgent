@@ -4,7 +4,7 @@ from .llm import llm
 from langsmith import traceable
 
 @traceable
-def llm_node(state: Dict[str, Any]) -> Dict[str, Any]:
+def llm_analysis(state: Dict[str, Any]) -> Dict[str, Any]:
     """Analyze AI news articles using LLM"""
     
     system_prompt = """You are a financial analyst specializing in AI/technology stocks. 
@@ -32,11 +32,7 @@ def llm_node(state: Dict[str, Any]) -> Dict[str, Any]:
         articles = get_ai_news_articles()
         
         if not articles:
-            return {
-                **state,
-                "analysis": "No AI news articles found for analysis.",
-                "status": "no_data"
-            }
+            return "No AI news articles found for analysis."
         
         messages = [
             {"role": "system", "content": system_prompt},
@@ -44,17 +40,7 @@ def llm_node(state: Dict[str, Any]) -> Dict[str, Any]:
         ]
         
         analysis = llm.invoke(messages)
-        
-        return {
-            **state,
-            "analysis": analysis,
-            "status": "complete",
-            "articles_analyzed": len(articles) if isinstance(articles, list) else 1
-        }
+        return analysis
         
     except Exception as e:
-        return {
-            **state,
-            "analysis": f"Error during analysis: {str(e)}",
-            "status": "error"
-        }
+        return f"Error during analysis: {str(e)}"
