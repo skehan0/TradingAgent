@@ -1,7 +1,3 @@
-"""
-Simple email service using Mailgun
-"""
-
 import os
 import requests
 from datetime import datetime

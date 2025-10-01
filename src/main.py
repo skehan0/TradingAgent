@@ -1,7 +1,3 @@
-"""
-AI Trading Agent - Simple Entry Point
-"""
-
 from services.analysis import llm_node
 from services.mailgun import send_analysis_report, test_email_service
 from dotenv import load_dotenv
