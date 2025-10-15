@@ -24,7 +24,8 @@ def create_llm_response(messages: list, model: str = "sonar", use_perplexity: bo
             temperature=0.1,  # Low temperature for consistent financial analysis
             max_tokens=2000
         )
-        return response.choices[0].message.content
+        content = response.choices[0].message.content
+        return content if content is not None else "No response generated"
     except Exception as e:
         return f"Error generating response: {str(e)}"
 
