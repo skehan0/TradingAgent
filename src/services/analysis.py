@@ -4,7 +4,7 @@ from .llm import llm
 from langsmith import traceable
 
 @traceable
-def llm_analysis(state: Dict[str, Any]) -> Dict[str, Any]:
+def llm_analysis(state: Dict[str, Any]) -> str:
     """Analyze AI news articles using LLM"""
     
     system_prompt = """You are a financial analyst specializing in AI/technology stocks. 
