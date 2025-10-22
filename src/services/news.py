@@ -2,6 +2,9 @@ import httpx
 import os
 from datetime import datetime, timedelta
 import dotenv
+import logging
+
+logger = logging.getLogger(__name__)
 
 dotenv.load_dotenv()
 
@@ -10,7 +13,7 @@ def get_ai_news_articles() -> str:
     
     api_key = os.getenv('NEWS_API_KEY')
     if not api_key:
-        print("No NEWS_API_KEY found in environment")
+        logger.error("No NEWS_API_KEY found in environment")
         return "No news API key configured"
     
     # Get yesterday's date in the required format
@@ -47,10 +50,10 @@ def get_ai_news_articles() -> str:
             
             return "\n".join(news_text)
         else:
-            print(f"News API error: {response.status_code}")
-            print(f"Response: {response.text}")
+            logger.error(f"Error fetching news from API: {response.status_code}")
+            logger.error(f"Response: {response.text}")
             return f"Error fetching news: {response.status_code}"
             
     except Exception as e:
-        print(f"News fetch error: {e}")
+        logger.error(f"Error fetching news: {str(e)}")
         return f"Error fetching news: {str(e)}"

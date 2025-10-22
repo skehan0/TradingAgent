@@ -3,6 +3,9 @@ from langsmith.wrappers import wrap_openai
 import os
 from dotenv import load_dotenv
 from langsmith import traceable
+import logging
+
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -27,6 +30,10 @@ def create_llm_response(messages: list, model: str = "sonar", use_perplexity: bo
         content = response.choices[0].message.content
         return content if content is not None else "No response generated"
     except Exception as e:
+        logger.error(f"Perplexity API error: {str(e)}", extra={
+            "model": model_name,
+            "use_perplexity": use_perplexity
+        })
         return f"Error generating response: {str(e)}"
 
 # Simple interface for your analysis

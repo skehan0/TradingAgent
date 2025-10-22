@@ -2,6 +2,9 @@ from typing import Any, Dict
 from .news import get_ai_news_articles
 from .llm import llm
 from langsmith import traceable
+import logging
+
+logger = logging.getLogger(__name__)
 
 @traceable
 def llm_analysis(state: Dict[str, Any]) -> str:
@@ -43,4 +46,5 @@ def llm_analysis(state: Dict[str, Any]) -> str:
         return analysis
         
     except Exception as e:
+        logger.error(f"Error during analysis: {str(e)}")
         return f"Error during analysis: {str(e)}"

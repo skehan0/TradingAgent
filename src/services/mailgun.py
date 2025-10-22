@@ -2,6 +2,9 @@ import os
 import requests
 from datetime import datetime
 from dotenv import load_dotenv
+import logging
+
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -14,7 +17,8 @@ def send_analysis_report(analysis: str, articles_count: int = 0):
     """Send analysis report via email"""
     
     if not API_KEY:
-        print("No API key found. Set API_KEY in .env")
+        logger.error("No MAILGUN_API_KEY found in environment")
+
         return {"success": False}
     
     # Create email content
@@ -44,12 +48,12 @@ This is AI-generated analysis. Not financial advice.
         )
         
         if response.status_code == 200:
-            print("Email sent successfully!")
+            logger.info("Email sent successfully")
             return {"success": True}
         else:
-            print(f"Email failed: {response.status_code}")
+            logger.error(f"Email failed: {response.status_code} - {response.text}")
             return {"success": False}
             
     except Exception as e:
-        print(f"Email error: {e}")
+        logger.error(f"Email error: {e}")
         return {"success": False}
