@@ -25,8 +25,38 @@ def llm_analysis(state: Dict[str, Any]) -> str:
     - Technology breakthroughs
     
     Return your analysis in a clear, actionable format suitable for trading decisions.
-    Prioritise the top 10 most market-relevant articles."""
-    
+    Prioritise the top 10 most market-relevant articles.
+
+    Example output format:
+{
+    "market_summary": "Brief overview of AI sector today",
+    "top_opportunities": [
+    {
+      "ticker": "NVDA",
+      "action": "BUY",
+      "confidence": "HIGH",
+      "reasoning": "Earnings beat, new AI chip launch",
+      "price_target": 520,
+      "timeframe": "1-2 weeks",
+      "risk_level": "MEDIUM"
+    }
+  ],
+  "top_risks": [
+    {
+      "ticker": "META",
+      "concern": "Regulatory scrutiny on AI models",
+      "impact": "BEARISH",
+      "severity": "MEDIUM"
+    }
+  ],
+  "sector_sentiment": {
+    "semiconductors": "BULLISH",
+    "software": "NEUTRAL",
+    "cloud": "BULLISH"
+  },
+  "key_events": ["NVDA earnings call 2PM ET", "Fed AI regulation hearing"]
+}
+"""
     try:
         # Get news articles
         articles = get_ai_news_articles()

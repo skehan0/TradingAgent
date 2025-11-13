@@ -1,6 +1,16 @@
-from src.services.analysis import llm_analysis
-from src.services.mailgun import send_analysis_report
+from services.analysis import llm_analysis
+from services.mailgun import send_analysis_report
 from dotenv import load_dotenv
+import logging
+
+# Configure logging format
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+logger = logging.getLogger(__name__)
+logger.info("AI Trading Agent started")
 
 def main():
     """Simple main function"""

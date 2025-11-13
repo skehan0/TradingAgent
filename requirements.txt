@@ -1,0 +1,7 @@
+httpx
+python-dotenv
+openai
+langsmith
+langchain-core
+langgraph
+requests
