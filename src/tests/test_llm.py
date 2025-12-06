@@ -11,4 +11,4 @@ def test_create_llm_response_with_valid_input():
     assert isinstance(response, str)
     assert len(response) > 0
     assert not response.startswith("Error")
-    assert response != "No response generated"
+    assert response != "No response generated, check API key"
