@@ -1,16 +1,16 @@
-# 🤖 AI Trading Agent
+# AI Trading Agent
 
 An intelligent trading agent that analyzes AI/technology news and provides actionable market insights using advanced language models.
 
-## 🚀 Features
+## Features
 
-- **📰 News Analysis**: Fetches and analyzes AI-related news articles
-- **🧠 AI-Powered Insights**: Uses Perplexity AI for market analysis
-- **📧 Email Reports**: Automated email delivery of analysis reports
-- **📊 LangSmith Tracing**: Complete observability of AI operations
-- **🏗️ Modular Architecture**: Clean, maintainable codebase
+- ** News Analysis**: Fetches and analyzes AI-related news articles
+- ** AI-Powered Insights**: Uses Perplexity AI for market analysis
+- ** Email Reports**: Automated email delivery of analysis reports
+- ** LangSmith Tracing**: Complete observability of AI operations
+- ** Modular Architecture**: Clean, maintainable codebase
 
-## 🛠️ Setup
+## Setup
 
 ### 1. Clone and Install
 
@@ -46,7 +46,7 @@ cd src
 python src/main.py
 ```
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 src/
@@ -59,7 +59,7 @@ src/
 └── architecture.py      # LangGraph workflow (future)
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
