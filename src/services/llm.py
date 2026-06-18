@@ -6,16 +6,16 @@ from langsmith import traceable
 
 load_dotenv()
 
-# Using Perplexity API
-perplexity_client = wrap_openai(OpenAI(
-    api_key=os.getenv("PERPLEXITY_API_KEY"),
-    base_url="https://api.perplexity.ai"
+# Using Ollama's OpenAI-compatible API
+ollama_client = wrap_openai(OpenAI(
+    api_key=os.getenv("OLLAMA_API_KEY", "ollama"),
+    base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434/v1")
 ))
 
 @traceable
-def create_llm_response(messages: list, model: str = "sonar", use_perplexity: bool = True) -> str:
-    client = perplexity_client
-    model_name = model
+def create_llm_response(messages: list, model: str = "gemma4:e4b", use_perplexity: bool = True) -> str:
+    client = ollama_client
+    model_name = model or os.getenv("OLLAMA_MODEL", "gemma4:e4b")
     
     try:
         response = client.chat.completions.create(
@@ -33,7 +33,7 @@ def create_llm_response(messages: list, model: str = "sonar", use_perplexity: bo
 class LLM:
     """Simple LLM wrapper for consistent interface"""
     
-    def __init__(self, use_perplexity: bool = True, model: str = "sonar"):
+    def __init__(self, use_perplexity: bool = True, model: str = "gemma4:e4b"):
         self.use_perplexity = use_perplexity
         self.model = model
     
@@ -43,4 +43,4 @@ class LLM:
         return create_llm_response(messages, self.model, self.use_perplexity)
 
 # Default LLM instance
-llm = LLM(use_perplexity=True, model="sonar")
+llm = LLM(use_perplexity=False, model=os.getenv("OLLAMA_MODEL", "gemma4:e4b"))

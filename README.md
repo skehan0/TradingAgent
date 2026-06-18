@@ -5,7 +5,7 @@ An intelligent trading agent that analyzes AI/technology news and provides actio
 ## Features
 
 - ** News Analysis**: Fetches and analyzes AI-related news articles
-- ** AI-Powered Insights**: Uses Perplexity AI for market analysis
+- ** AI-Powered Insights**: Uses Ollama for local market analysis
 - ** Email Reports**: Automated email delivery of analysis reports
 - ** LangSmith Tracing**: Complete observability of AI operations
 - ** Modular Architecture**: Clean, maintainable codebase
@@ -32,7 +32,7 @@ Create `.env` and fill in your API keys:
 
 Required API keys:
 - **News API**: For fetching news articles
-- **Perplexity API**: For AI analysis ($5/month)
+- **Ollama**: For AI analysis via the local OpenAI-compatible endpoint
 - **LangSmith API**: For tracing and monitoring
 - **Mailgun API**: For email delivery (optional)
 
@@ -66,7 +66,8 @@ src/
 | Variable | Description | Required |
 |----------|-------------|----------|
 | `NEWS_API_KEY` | News API key | Yes |
-| `PERPLEXITY_API_KEY` | Perplexity AI API key | Yes |
+| `OLLAMA_BASE_URL` | Ollama OpenAI-compatible endpoint | No |
+| `OLLAMA_MODEL` | Ollama model name | No |
 | `LANGSMITH_API_KEY` | LangSmith API key | Yes |
 | `MAILGUN_API_KEY` | Mailgun API key | No* |
 | `MAILGUN_DOMAIN` | Mailgun domain | No* |

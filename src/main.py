@@ -1,5 +1,5 @@
-from src.services.analysis import llm_analysis
-from src.services.mailgun import send_analysis_report
+from services.analysis import llm_analysis
+from services.mailgun import send_analysis_report
 from dotenv import load_dotenv
 
 def main():
